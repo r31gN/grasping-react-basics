@@ -1,0 +1,7 @@
+[
+  { "id": 1, "name": "Superman", "type": "Shnitzel", "adopted": false },
+  { "id": 2, "name": "Reign", "type": "Rottweiler", "adopted": false },
+  { "id": 3, "name": "Bella", "type": "Labrador", "adopted": false },
+  { "id": 4, "name": "Pikachu", "type": "Pokemon", "adopted": false },
+  { "id": 5, "name": "Gundo", "type": "Terrier", "adopted": false }
+]

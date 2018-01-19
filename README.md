@@ -84,7 +84,7 @@ The following endpoints/CRUD operations exist:
    Response body: { "message": "No puppy found." }
    ```
 
-All API endpoints acctept and send back JSON format.
+All API endpoints accept and send back JSON format.
 
 ## Other considerations
 

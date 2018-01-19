@@ -89,7 +89,3 @@ All API endpoints acctept and send back JSON format.
 ## Other considerations
 
 This application uses a JSON file (`data/puppies.json`) as a persistence layer.
-
-```
-
-```

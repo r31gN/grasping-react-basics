@@ -79,7 +79,7 @@ The following endpoints/CRUD operations exist:
    Request: DELETE /puppies/3
    Response status: 200
 
-   Request: DELETE /puppies/999 (200 status)
+   Request: DELETE /puppies/999
    Response status: 404  
    Response body: { "message": "No puppy found." }
    ```

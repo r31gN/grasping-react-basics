@@ -18,13 +18,16 @@ API will be up & running on `http://localhost:4000`.
 The following endpoints/CRUD operations exist:
 
 1. `GET /puppies` - Returns a list of all the puppies in the system
+
+   ```
    E.g.:
-   Request: GET /puppies
-   Response status: 200
-   Response body: [
-   { "id": 1, "name": "Superman", "type": "Shnitzel", "adopted": false },
-   { "id": 2, "name": "Reign", "type": "Rottweiler", "adopted": false }
-   ]
+      Request: GET /puppies
+      Response status: 200
+      Response body: [
+          { "id": 1, "name": "Superman", "type": "Shnitzel", "adopted": false },
+          { "id": 2, "name": "Reign", "type": "Rottweiler", "adopted": false }
+      ]
+   ```
 
 2. `GET /puppies/:id` - Returns a puppy object or 404 if not found
    E.g.:

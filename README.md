@@ -88,4 +88,4 @@ All API endpoints accept and send back JSON format.
 
 ## Other considerations
 
-This application uses a JSON file (`data/puppies.json`) as a persistence layer.
+This application uses a JSON file (`data/puppies.json`) as a persistence layer. There is a backup (initial data to be used) in `data/puppies.bk.json`.

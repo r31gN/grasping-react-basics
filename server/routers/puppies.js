@@ -85,7 +85,7 @@ router.put('/:id', async (req, res) => {
       return res.status(404).send({ message: 'No puppy found.' });
     }
 
-    const puppy = Object.assign(puppies[indexOfPuppy], {
+    const puppy = Object.assign({}, puppies[indexOfPuppy], {
       name: req.body.name,
       type: req.body.type,
       adopted: req.body.adopted

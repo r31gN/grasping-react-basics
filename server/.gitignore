@@ -1,8 +1,0 @@
-node_modules
-.DS_Store
-
-# dependencies
-/node_modules
-
-# misc
-npm-debug.log*

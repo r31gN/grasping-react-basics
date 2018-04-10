@@ -1,7 +1,0 @@
-[
-  { "id": 1, "name": "Reign", "type": "Bulldog", "adopted": false },
-  { "id": 2, "name": "Kara", "type": "Terrier", "adopted": false },
-  { "id": 3, "name": "Max", "type": "Labrador", "adopted": false },
-  { "id": 4, "name": "Gundo", "type": "Pitbull", "adopted": false },
-  { "id": 5, "name": "Sheeba", "type": "Caucasian", "adopted": false }
-]

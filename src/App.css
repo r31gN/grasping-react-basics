@@ -1,0 +1,57 @@
+.puppies-app__header {
+  height: 5rem;
+}
+
+.puppies-list {
+  flex-wrap: wrap;
+}
+
+.puppies-list__item {
+  width: calc((100% - 4rem) / 3);
+  border: 1px solid #1b2428;
+}
+
+.puppies-list__item:nth-child(3n + 1),
+.puppies-list__item:nth-child(3n + 2) {
+  margin-right: 2rem;
+}
+
+.puppies-list__item:nth-child(n + 4) {
+  margin-top: 2rem;
+}
+
+.puppy-add-btn,
+.puppy-save-btn,
+.puppies-list__item__adopt-btn,
+.puppies-list__item__delete-btn {
+  color: #fff;
+}
+
+.puppy-add-btn,
+.puppy-save-btn,
+.puppies-list__item__adopt-btn.not-adopted {
+  background: #1b2428;
+}
+
+.puppies-list__item__adopt-btn.adopted,
+.puppies-list__item__delete-btn {
+  background: #f7412d;
+}
+
+.puppy-add-form {
+  width: 20rem;
+}
+
+.puppy-add-form__label {
+  display: block;
+  width: 25%;
+}
+
+.puppy-add-form__input {
+  width: 75%;
+  border: 1px solid #1b2428;
+}
+
+.puppy-save-btn {
+  width: 100%;
+}

@@ -1,0 +1,492 @@
+/**
+ * RESET
+ */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+nav,
+section {
+  display: block;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+q::before {
+  content: '';
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/**
+ * GENERIC
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px !important;
+  font-family: sans-serif;
+  line-height: 1.5;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  background-color: transparent;
+  color: #00f;
+}
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+a.no-deco {
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.875rem;
+}
+
+img {
+  max-width: 100%;
+}
+
+img[width],
+img[height] {
+  max-width: none;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+input[type='button'],
+input[type='reset'],
+input[type='submit'] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+button[disabled],
+input[disabled] {
+  cursor: default;
+}
+
+textarea {
+  overflow: auto;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/**
+ * UTILITIES
+ */
+
+.u-mt-zero {
+  margin-top: 0 !important;
+}
+
+.u-mb-zero {
+  margin-bottom: 0 !important;
+}
+
+.u-ml-zero {
+  margin-left: 0 !important;
+}
+
+.u-mr-zero {
+  margin-right: 0 !important;
+}
+
+.u-mv-zero {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.u-mh-zero {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.u-ma-zero {
+  margin: 0 !important;
+}
+
+.u-mt-half {
+  margin-top: 0.5rem !important;
+}
+
+.u-mb-half {
+  margin-bottom: 0.5rem !important;
+}
+
+.u-ml-half {
+  margin-left: 0.5rem !important;
+}
+
+.u-mr-half {
+  margin-right: 0.5rem !important;
+}
+
+.u-mv-half {
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.u-mh-half {
+  margin-left: 0.5rem !important;
+  margin-right: 0.5rem !important;
+}
+
+.u-ma-half {
+  margin: 0.5rem !important;
+}
+
+.u-mt-full {
+  margin-top: 1rem !important;
+}
+
+.u-mb-full {
+  margin-bottom: 1rem !important;
+}
+
+.u-ml-full {
+  margin-left: 1rem !important;
+}
+
+.u-mr-full {
+  margin-right: 1rem !important;
+}
+
+.u-mv-full {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.u-mh-full {
+  margin-left: 1rem !important;
+  margin-right: 1rem !important;
+}
+
+.u-ma-full {
+  margin: 1rem !important;
+}
+
+.u-mt-double {
+  margin-top: 2rem !important;
+}
+
+.u-mb-double {
+  margin-bottom: 2rem !important;
+}
+
+.u-ml-double {
+  margin-left: 2rem !important;
+}
+
+.u-mr-double {
+  margin-right: 2rem !important;
+}
+
+.u-mv-double {
+  margin-top: 2rem !important;
+  margin-bottom: 2rem !important;
+}
+
+.u-mh-double {
+  margin-left: 2rem !important;
+  margin-right: 2rem !important;
+}
+
+.u-ma-double {
+  margin: 2rem !important;
+}
+
+.u-pt-zero {
+  padding-top: 0 !important;
+}
+
+.u-pb-zero {
+  padding-bottom: 0 !important;
+}
+
+.u-pl-zero {
+  padding-left: 0 !important;
+}
+
+.u-pr-zero {
+  padding-right: 0 !important;
+}
+
+.u-pv-zero {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.u-ph-zero {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.u-pa-zero {
+  padding: 0 !important;
+}
+
+.u-pt-half {
+  padding-top: 0.5rem !important;
+}
+
+.u-pb-half {
+  padding-bottom: 0.5rem !important;
+}
+
+.u-pl-half {
+  padding-left: 0.5rem !important;
+}
+
+.u-pr-half {
+  padding-right: 0.5rem !important;
+}
+
+.u-pv-half {
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+
+.u-ph-half {
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+}
+
+.u-pa-half {
+  padding: 0.5rem !important;
+}
+
+.u-pt-full {
+  padding-top: 1rem !important;
+}
+
+.u-pb-full {
+  padding-bottom: 1rem !important;
+}
+
+.u-pl-full {
+  padding-left: 1rem !important;
+}
+
+.u-pr-full {
+  padding-right: 1rem !important;
+}
+
+.u-pv-full {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+
+.u-ph-full {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+.u-pa-full {
+  padding: 1rem !important;
+}
+
+.u-pt-double {
+  padding-top: 2rem !important;
+}
+
+.u-pb-double {
+  padding-bottom: 2rem !important;
+}
+
+.u-pl-double {
+  padding-left: 2rem !important;
+}
+
+.u-pr-double {
+  padding-right: 2rem !important;
+}
+
+.u-pv-double {
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+}
+
+.u-ph-double {
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+
+.u-pa-double {
+  padding: 2rem !important;
+}
+
+.u-cf:after {
+  clear: both;
+}
+
+.u-fl {
+  float: left;
+}
+
+.u-fr {
+  float: right;
+}
+
+.u-center {
+  text-align: center;
+}
+
+.u-bold {
+  font-weight: bold;
+}
+
+.u-italic {
+  font-style: italic;
+}
+
+.u-uppercase {
+  text-transform: uppercase;
+}
+
+.u-capitalize {
+  text-transform: capitalize;
+}
+
+.u-trim {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.u-rounded {
+  border-radius: 5px;
+}
+
+.u-rounded-full {
+  border-radius: 50%;
+}
+
+.u-fx {
+  display: flex;
+}
+
+.u-fx-row-reverse {
+  flex-direction: row-reverse;
+}
+
+.u-fx-column {
+  flex-direction: column;
+}
+
+.u-fx-column-reverse {
+  flex-direction: column-reverse;
+}
+
+.u-fx-align-center {
+  align-items: center;
+}
+
+.u-fx-align-start {
+  align-items: flex-start;
+}
+
+.u-fx-align-end {
+  align-items: flex-end;
+}
+
+.u-fx-justify-center {
+  justify-content: center;
+}
+
+.u-fx-justify-space-between {
+  justify-content: space-between;
+}
+
+.u-fx-justify-space-around {
+  justify-content: space-around;
+}
+
+.u-fx-justify-start {
+  justify-content: flex-start;
+}
+
+.u-fx-justify-end {
+  justify-content: flex-end;
+}
+
+html,
+body,
+#root,
+main {
+  min-height: 100vh;
+}

@@ -4,6 +4,27 @@ import PuppyAddForm from './PuppyAddForm';
 import PuppiesList from './PuppiesList';
 import './App.css';
 
+const determineFIlteredPuppies = (puppiesArr, filter) => {
+  let filteredPuppies = [];
+
+  switch (filter) {
+    case 'ALL':
+      filteredPuppies = puppiesArr.slice(0);
+      break;
+    case 'ADOPTED':
+      filteredPuppies = puppiesArr.filter(puppy => puppy.adopted);
+      break;
+    case 'NOT_ADOPTED':
+      filteredPuppies = puppiesArr.filter(puppy => !puppy.adopted);
+      break;
+    default:
+      filteredPuppies = puppiesArr.slice(0);
+      break;
+  }
+
+  return filteredPuppies;
+};
+
 class App extends Component {
   constructor() {
     super();
@@ -28,22 +49,10 @@ class App extends Component {
 
   _onChangeFilterHandler = e => {
     const newFilter = e.target.value;
-    let filteredPuppies = [];
-
-    switch (newFilter) {
-      case 'ALL':
-        filteredPuppies = this.state.puppies.slice(0);
-        break;
-      case 'ADOPTED':
-        filteredPuppies = this.state.puppies.filter(puppy => puppy.adopted);
-        break;
-      case 'NOT_ADOPTED':
-        filteredPuppies = this.state.puppies.filter(puppy => !puppy.adopted);
-        break;
-      default:
-        filteredPuppies = this.state.puppies.slice(0);
-        break;
-    }
+    let filteredPuppies = determineFIlteredPuppies(
+      this.state.puppies,
+      newFilter
+    );
 
     this.setState(() => ({
       filteredPuppies,
@@ -94,7 +103,10 @@ class App extends Component {
       .then(res =>
         this.setState(() => ({
           puppies: res.slice(0),
-          filteredPuppies: res.slice(0)
+          filteredPuppies: determineFIlteredPuppies(
+            res.slice(0),
+            this.state.currentFilter
+          )
         }))
       );
   };

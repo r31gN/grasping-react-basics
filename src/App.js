@@ -4,7 +4,7 @@ import PuppyAddForm from './PuppyAddForm';
 import PuppiesList from './PuppiesList';
 import './App.css';
 
-const determineFIlteredPuppies = (puppiesArr, filter) => {
+const determineFilteredPuppies = (puppiesArr, filter) => {
   let filteredPuppies = [];
 
   switch (filter) {
@@ -49,7 +49,7 @@ class App extends Component {
 
   _onChangeFilterHandler = e => {
     const newFilter = e.target.value;
-    let filteredPuppies = determineFIlteredPuppies(
+    let filteredPuppies = determineFilteredPuppies(
       this.state.puppies,
       newFilter
     );
@@ -103,7 +103,7 @@ class App extends Component {
       .then(res =>
         this.setState(() => ({
           puppies: res.slice(0),
-          filteredPuppies: determineFIlteredPuppies(
+          filteredPuppies: determineFilteredPuppies(
             res.slice(0),
             this.state.currentFilter
           )

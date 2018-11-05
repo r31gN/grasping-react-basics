@@ -391,97 +391,97 @@ textarea {
 }
 
 .u-cf:after {
-  clear: both;
+  clear: both !important;
 }
 
 .u-fl {
-  float: left;
+  float: left !important;
 }
 
 .u-fr {
-  float: right;
+  float: right !important;
 }
 
 .u-center {
-  text-align: center;
+  text-align: center !important;
 }
 
 .u-bold {
-  font-weight: bold;
+  font-weight: bold !important;
 }
 
 .u-italic {
-  font-style: italic;
+  font-style: italic !important;
 }
 
 .u-uppercase {
-  text-transform: uppercase;
+  text-transform: uppercase !important;
 }
 
 .u-capitalize {
-  text-transform: capitalize;
+  text-transform: capitalize !important;
 }
 
 .u-trim {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
 }
 
 .u-rounded {
-  border-radius: 5px;
+  border-radius: 5px !important;
 }
 
 .u-rounded-full {
-  border-radius: 50%;
+  border-radius: 50% !important;
 }
 
 .u-fx {
-  display: flex;
+  display: flex !important;
 }
 
 .u-fx-row-reverse {
-  flex-direction: row-reverse;
+  flex-direction: row-reverse !important;
 }
 
 .u-fx-column {
-  flex-direction: column;
+  flex-direction: column !important;
 }
 
 .u-fx-column-reverse {
-  flex-direction: column-reverse;
+  flex-direction: column-reverse !important;
 }
 
 .u-fx-align-center {
-  align-items: center;
+  align-items: center !important;
 }
 
 .u-fx-align-start {
-  align-items: flex-start;
+  align-items: flex-start !important;
 }
 
 .u-fx-align-end {
-  align-items: flex-end;
+  align-items: flex-end !important;
 }
 
 .u-fx-justify-center {
-  justify-content: center;
+  justify-content: center !important;
 }
 
 .u-fx-justify-space-between {
-  justify-content: space-between;
+  justify-content: space-between !important;
 }
 
 .u-fx-justify-space-around {
-  justify-content: space-around;
+  justify-content: space-around !important;
 }
 
 .u-fx-justify-start {
-  justify-content: flex-start;
+  justify-content: flex-start !important;
 }
 
 .u-fx-justify-end {
-  justify-content: flex-end;
+  justify-content: flex-end !important;
 }
 
 html,

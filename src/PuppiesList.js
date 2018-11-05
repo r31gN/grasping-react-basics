@@ -7,7 +7,7 @@ const PuppiesList = ({
   onClickAdoptHandler,
   onClickDeleteHandler
 }) => (
-  <ul className="puppies-list u-fx u-fx-space-between">
+  <ul className="puppies-list u-fx">
     {puppies.map(puppy => (
       <Puppy
         key={puppy.id}

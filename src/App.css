@@ -7,17 +7,20 @@
 }
 
 .puppies-list__item {
-  width: calc((100% - 4rem) / 3);
+  width: 33.33%;
   border: 1px solid #1b2428;
 }
 
-.puppies-list__item:nth-child(3n + 1),
-.puppies-list__item:nth-child(3n + 2) {
-  margin-right: 2rem;
+@media screen and (max-width: 1200px) {
+  .puppies-list__item {
+    width: 50%;
+  }
 }
 
-.puppies-list__item:nth-child(n + 4) {
-  margin-top: 2rem;
+@media screen and (max-width: 800px) {
+  .puppies-list__item {
+    width: 100%;
+  }
 }
 
 .puppy-add-btn,

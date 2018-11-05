@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import PropTypes from 'prop-types';
-import Puppy from './Puppy';
+
+const LazyPuppy = lazy(() => import('./Puppy'));
 
 const PuppiesList = ({
   puppies,
@@ -9,12 +10,14 @@ const PuppiesList = ({
 }) => (
   <ul className="puppies-list u-fx">
     {puppies.map(puppy => (
-      <Puppy
-        key={puppy.id}
-        {...puppy}
-        onClickAdoptHandler={onClickAdoptHandler}
-        onClickDeleteHandler={onClickDeleteHandler}
-      />
+      <Suspense fallback={null}>
+        <LazyPuppy
+          key={puppy.id}
+          {...puppy}
+          onClickAdoptHandler={onClickAdoptHandler}
+          onClickDeleteHandler={onClickDeleteHandler}
+        />
+      </Suspense>
     ))}
   </ul>
 );

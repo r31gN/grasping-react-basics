@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import Filters from './Filters';
-import PuppyAddForm from './PuppyAddForm';
-import PuppiesList from './PuppiesList';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import './App.css';
+
+const API_SERVER = 'http://localhost:4000';
+
+const LazyFilters = lazy(() => import('./Filters'));
+const LazyPuppyAddForm = lazy(() => import('./PuppyAddForm'));
+const LazyPuppiesList = lazy(() => import('./PuppiesList'));
 
 const determineFilteredPuppies = (puppiesArr, filter) => {
   let filteredPuppies = [];
@@ -31,7 +34,7 @@ const App = () => {
   const [filter, setFilter] = useState('ALL');
 
   const onClickSaveHandler = async puppy => {
-    await fetch(`/puppies`, {
+    await fetch(`${API_SERVER}/puppies`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -39,7 +42,7 @@ const App = () => {
       },
       body: JSON.stringify(puppy)
     });
-    const res = await fetch(`/puppies`);
+    const res = await fetch(`${API_SERVER}/puppies`);
     const json = await res.json();
 
     setPuppies(json);
@@ -50,7 +53,7 @@ const App = () => {
     const puppy = puppies.find(puppy => puppy.id === puppyId);
     puppy.adopted = !puppy.adopted;
 
-    await fetch(`/puppies/${puppyId}`, {
+    await fetch(`${API_SERVER}/puppies/${puppyId}`, {
       method: 'PUT',
       headers: {
         Accept: 'application/json',
@@ -58,14 +61,14 @@ const App = () => {
       },
       body: JSON.stringify(puppy)
     });
-    const res = await fetch(`/puppies`);
+    const res = await fetch(`${API_SERVER}/puppies`);
     const json = await res.json();
 
     setPuppies(json);
   };
 
   const onClickDeleteHandler = async puppyId => {
-    await fetch(`/puppies/${puppyId}`, { method: 'DELETE' });
+    await fetch(`${API_SERVER}/puppies/${puppyId}`, { method: 'DELETE' });
     const res = await fetch(`/puppies`);
     const json = await res.json();
 
@@ -73,7 +76,7 @@ const App = () => {
   };
 
   useEffect(async () => {
-    const res = await fetch(`/puppies`);
+    const res = await fetch(`${API_SERVER}/puppies`);
     const json = await res.json();
     setPuppies(json);
   }, []);
@@ -88,10 +91,12 @@ const App = () => {
         <h2>Puppy Adoption FTW</h2>
       </header>
       <div className="u-fx u-fx-align-center u-fx-justify-center  u-mb-double">
-        <Filters
-          filter={filter}
-          onChangeFilterHandler={e => setFilter(e.target.value)}
-        />
+        <Suspense fallback={null}>
+          <LazyFilters
+            filter={filter}
+            onChangeFilterHandler={e => setFilter(e.target.value)}
+          />
+        </Suspense>
         <span className="u-mh-double">OR</span>
         <button
           className="puppy-add-btn u-pa-half"
@@ -101,13 +106,17 @@ const App = () => {
         </button>
       </div>
       {isInAddMode ? (
-        <PuppyAddForm onClickSaveHandler={onClickSaveHandler} />
+        <Suspense fallback={null}>
+          <LazyPuppyAddForm onClickSaveHandler={onClickSaveHandler} />
+        </Suspense>
       ) : null}
-      <PuppiesList
-        onClickAdoptHandler={onClickAdoptHandler}
-        onClickDeleteHandler={onClickDeleteHandler}
-        puppies={determineFilteredPuppies(puppies, filter)}
-      />
+      <Suspense fallback={null}>
+        <LazyPuppiesList
+          onClickAdoptHandler={onClickAdoptHandler}
+          onClickDeleteHandler={onClickDeleteHandler}
+          puppies={determineFilteredPuppies(puppies, filter)}
+        />
+      </Suspense>
     </div>
   );
 };

@@ -5,8 +5,8 @@
   "proxy": "http://localhost:4000",
   "dependencies": {
     "prop-types": "^15.6.2",
-    "react": "^16.6.0",
-    "react-dom": "^16.6.0",
+    "react": "^16.7.0-alpha",
+    "react-dom": "^16.7.0-alpha",
     "react-scripts": "^2.1.1"
   },
   "scripts": {
@@ -17,8 +17,7 @@
   },
   "devDependencies": {
     "enzyme": "^3.7.0",
-    "enzyme-adapter-react-16": "^1.6.0",
-    "react-perf-devtool": "^3.1.8"
+    "enzyme-adapter-react-16": "^1.6.0"
   },
   "browserslist": [
     ">0.2%",

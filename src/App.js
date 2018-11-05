@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect, Component } from 'react';
 import Filters from './Filters';
 import PuppyAddForm from './PuppyAddForm';
 import PuppiesList from './PuppiesList';
@@ -24,6 +24,95 @@ const determineFilteredPuppies = (puppiesArr, filter) => {
 
   return filteredPuppies;
 };
+
+/*
+const App = () => {
+  const [isInAddMode, setIsInAddMode] = useState(false);
+  const [puppies, setPuppies] = useState([]);
+  const [filter, setFilter] = useState('ALL');
+
+  const onClickSaveHandler = async puppy => {
+    const save = await fetch(`/puppies`, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(puppy)
+    });
+    const res = await fetch(`/puppies`);
+    const puppies = await res.json();
+
+    setPuppies(puppies);
+    setIsInAddMode(false);
+  };
+
+  const onClickAdoptHandler = async puppyId => {
+    const puppy = puppies.find(puppy => puppy.id === puppyId);
+    puppy.adopted = !puppy.adopted;
+
+    const save = await fetch(`/puppies/${puppyId}`, {
+      method: 'PUT',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(puppy)
+    });
+    const res = await fetch(`/puppies`);
+    const puppies = await res.json();
+
+    setPuppies(puppies);
+  };
+
+  const onClickDeleteHandler = async puppyId => {
+    const save = await fetch(`/puppies/${puppyId}`, { method: 'DELETE' });
+    const res = await fetch(`/puppies`);
+    const puppies = await res.json();
+
+    setPuppies(puppies);
+  };
+
+  useEffect(async () => {
+    const res = await fetch(`/puppies`);
+    const puppies = await res.json();
+    setPuppies(puppies);
+  });
+
+  if (!puppies.length) {
+    return null;
+  }
+
+  return (
+    <div className="puppies-app u-pa-double">
+      <header className="puppies-app__header u-fx u-fx-align-center u-fx-justify-center u-mb-double">
+        <h2>Puppy Adoption FTW</h2>
+      </header>
+      <div className="u-fx u-fx-align-center u-fx-justify-center  u-mb-double">
+        <Filters
+          filter={filter}
+          onChangeFilterHandler={e => setFilter(e.target.value)}
+        />
+        <span className="u-mh-double">OR</span>
+        <button
+          className="puppy-add-btn u-pa-half"
+          onClick={_ => setIsInAddMode(!isInAddMode)}
+        >
+          Toggle add puppy form
+        </button>
+      </div>
+      {isInAddMode ? (
+        <PuppyAddForm onClickSaveHandler={onClickSaveHandler} />
+      ) : null}
+      <PuppiesList
+        onClickAdoptHandler={onClickAdoptHandler}
+        onClickDeleteHandler={onClickDeleteHandler}
+        puppies={determineFilteredPuppies(puppies, filter)}
+      />
+    </div>
+  );
+};
+*/
 
 class App extends Component {
   constructor() {
@@ -127,5 +216,7 @@ class App extends Component {
     );
   }
 }
+
+// export default React.memo(App);
 
 export default App;

@@ -17,4 +17,4 @@ Filters.propTypes = {
   onChangeFilterHandler: PropTypes.func.isRequired
 };
 
-export default Filters;
+export default React.memo(Filters);

@@ -12,10 +12,8 @@ class PuppyAddForm extends Component {
   }
 
   _onChangeInputHandler = e => {
-    const key = e.target.name;
-    const { value } = e.target;
-
-    this.setState(() => ({ [key]: value }));
+    const { name, value } = e.target;
+    this.setState(() => ({ [name]: value }));
   };
 
   _onClickSaveHandler = () =>

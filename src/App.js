@@ -32,32 +32,18 @@ class App extends Component {
     this.state = {
       isInAddMode: false,
       puppies: [],
-      filteredPuppies: [],
-      currentFilter: 'ALL'
+      filter: 'ALL'
     };
   }
 
   componentDidMount = () =>
     fetch(`/puppies`)
       .then(res => res.json())
-      .then(res =>
-        this.setState(() => ({
-          puppies: res.slice(0),
-          filteredPuppies: res.slice(0)
-        }))
-      );
+      .then(puppies => this.setState({ puppies }));
 
   _onChangeFilterHandler = e => {
-    const newFilter = e.target.value;
-    let filteredPuppies = determineFilteredPuppies(
-      this.state.puppies,
-      newFilter
-    );
-
-    this.setState(() => ({
-      filteredPuppies,
-      currentFilter: newFilter
-    }));
+    const filter = e.target.value;
+    this.setState({ filter });
   };
 
   _onClickAddHandler = () =>
@@ -77,13 +63,7 @@ class App extends Component {
     })
       .then(() => fetch(`/puppies`))
       .then(res => res.json())
-      .then(res =>
-        this.setState(() => ({
-          puppies: res.slice(0),
-          filteredPuppies: res.slice(0),
-          isInAddMode: false
-        }))
-      );
+      .then(puppies => this.setState({ puppies, isInAddMode: false }));
   };
 
   _onClickAdoptHandler = puppyId => {
@@ -98,33 +78,22 @@ class App extends Component {
       },
       body: JSON.stringify(puppy)
     })
-      .then(() => fetch(`/puppies`))
+      .then(_ => fetch(`/puppies`))
       .then(res => res.json())
-      .then(res =>
-        this.setState(() => ({
-          puppies: res.slice(0),
-          filteredPuppies: determineFilteredPuppies(
-            res.slice(0),
-            this.state.currentFilter
-          )
-        }))
-      );
+      .then(puppies => this.setState({ puppies }));
   };
 
   _onClickDeleteHandler = puppyId => {
     fetch(`/puppies/${puppyId}`, { method: 'DELETE' })
       .then(() => fetch(`/puppies`))
       .then(res => res.json())
-      .then(res =>
-        this.setState(() => ({
-          puppies: res.slice(0),
-          filteredPuppies: res.slice(0)
-        }))
-      );
+      .then(puppies => this.setState({ puppies }));
   };
 
   render() {
-    if (!this.state.puppies.length) {
+    const { isInAddMode, puppies, filter } = this.state;
+
+    if (!puppies.length) {
       return null;
     }
 
@@ -135,7 +104,7 @@ class App extends Component {
         </header>
         <div className="u-fx u-fx-align-center u-fx-justify-center  u-mb-double">
           <Filters
-            currentFilter={this.state.currentFilter}
+            filter={filter}
             onChangeFilterHandler={this._onChangeFilterHandler}
           />
           <span className="u-mh-double">OR</span>
@@ -146,13 +115,13 @@ class App extends Component {
             Toggle add puppy form
           </button>
         </div>
-        {this.state.isInAddMode ? (
+        {isInAddMode ? (
           <PuppyAddForm onClickSaveHandler={this._onClickSaveHandler} />
         ) : null}
         <PuppiesList
           onClickAdoptHandler={this._onClickAdoptHandler}
           onClickDeleteHandler={this._onClickDeleteHandler}
-          puppies={this.state.filteredPuppies}
+          puppies={determineFilteredPuppies(puppies, filter)}
         />
       </div>
     );

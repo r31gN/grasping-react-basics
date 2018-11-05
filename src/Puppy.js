@@ -43,4 +43,4 @@ Puppy.propTypes = {
   onClickDeleteHandler: PropTypes.func.isRequired
 };
 
-export default Puppy;
+export default React.memo(Puppy);

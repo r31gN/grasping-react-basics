@@ -75,10 +75,12 @@ const App = () => {
     setPuppies(json);
   };
 
-  useEffect(async () => {
-    const res = await fetch(`${API_SERVER}/puppies`);
-    const json = await res.json();
-    setPuppies(json);
+  useEffect(() => {
+    (async () => {
+      const res = await fetch(`${API_SERVER}/puppies`);
+      const json = await res.json();
+      setPuppies(json);
+    })();
   }, []);
 
   if (!puppies.length) {

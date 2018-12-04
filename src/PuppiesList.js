@@ -10,9 +10,8 @@ const PuppiesList = ({
 }) => (
   <ul className="puppies-list u-fx">
     {puppies.map(puppy => (
-      <Suspense fallback={null}>
+      <Suspense key={puppy.id} fallback={null}>
         <LazyPuppy
-          key={puppy.id}
           {...puppy}
           onClickAdoptHandler={onClickAdoptHandler}
           onClickDeleteHandler={onClickDeleteHandler}

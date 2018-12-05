@@ -2,7 +2,6 @@
   "name": "training-grasping-react-basics",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:4000",
   "dependencies": {
     "prop-types": "^15.6.2",
     "react": "^16.7.0-alpha.2",

@@ -15,10 +15,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "devDependencies": {
-    "enzyme": "^3.7.0",
-    "enzyme-adapter-react-16": "^1.6.0"
-  },
+  "devDependencies": {},
   "browserslist": [
     ">0.2%",
     "not dead",

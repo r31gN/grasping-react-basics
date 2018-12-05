@@ -1,4 +1,5 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
+import Loading from './Loading';
 import './App.css';
 
 const API_SERVER = 'http://localhost:4000';
@@ -93,7 +94,7 @@ const App = () => {
         <h2>Puppy Adoption FTW</h2>
       </header>
       <div className="u-fx u-fx-align-center u-fx-justify-center  u-mb-double">
-        <Suspense fallback={null}>
+        <Suspense fallback={<Loading />}>
           <LazyFilters
             filter={filter}
             onChangeFilterHandler={e => setFilter(e.target.value)}
@@ -108,11 +109,11 @@ const App = () => {
         </button>
       </div>
       {isInAddMode ? (
-        <Suspense fallback={null}>
+        <Suspense fallback={<Loading />}>
           <LazyPuppyAddForm onClickSaveHandler={onClickSaveHandler} />
         </Suspense>
       ) : null}
-      <Suspense fallback={null}>
+      <Suspense fallback={<Loading />}>
         <LazyPuppiesList
           onClickAdoptHandler={onClickAdoptHandler}
           onClickDeleteHandler={onClickDeleteHandler}

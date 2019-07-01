@@ -70,8 +70,10 @@ const App = () => {
 
   const onClickDeleteHandler = async puppyId => {
     await fetch(`${API_SERVER}/puppies/${puppyId}`, { method: 'DELETE' });
-    const res = await fetch(`/puppies`);
+    const res = await fetch(`${API_SERVER}/puppies`);
     const json = await res.json();
+
+    console.log(json);
 
     setPuppies(json);
   };

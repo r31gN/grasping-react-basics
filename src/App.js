@@ -73,8 +73,6 @@ const App = () => {
     const res = await fetch(`${API_SERVER}/puppies`);
     const json = await res.json();
 
-    console.log(json);
-
     setPuppies(json);
   };
 
